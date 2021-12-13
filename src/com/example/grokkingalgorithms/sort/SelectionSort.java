@@ -7,7 +7,7 @@ import com.example.grokkingalgorithms.util.Arrays;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
- * Ê±¼ä¸´ÔÓ¶ÈO(n<sup>2</sup>)£¬µ«ÊÇ½»»»²Ù×÷¸´ÔÓ¶ÈÎªO(n)£¬ÓÅÓÚÃ°ÅİÅÅĞò
+ * æ—¶é—´å¤æ‚åº¦O(n<sup>2</sup>)ï¼Œä½†æ˜¯äº¤æ¢æ“ä½œå¤æ‚åº¦ä¸ºO(n)ï¼Œä¼˜äºå†’æ³¡æ’åº
  */
 public class SelectionSort {
     public static void sort(int[] arr) {

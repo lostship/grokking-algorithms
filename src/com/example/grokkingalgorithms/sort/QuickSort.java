@@ -7,7 +7,7 @@ import com.example.grokkingalgorithms.util.Arrays;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
- * 使用分治的基本算法思想（divide and conquer, D&C），时间复杂度O(n * log<sup>n</sup>)
+ * 浣跨敤鍒嗘不鐨勫熀鏈畻娉曟�濇兂锛坉ivide and conquer, D&C锛夛紝鏃堕棿澶嶆潅搴(n * log<sup>n</sup>)
  */
 public class QuickSort {
     public static void sort(final int[] arr) {

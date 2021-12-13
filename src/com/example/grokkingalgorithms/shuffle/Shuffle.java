@@ -6,7 +6,7 @@ import com.example.grokkingalgorithms.util.Arrays;
 
 public class Shuffle {
     /**
-     * 时间复杂度O(n)，空间复杂度O(1)
+     * 鏃堕棿澶嶆潅搴(n)锛岀┖闂村鏉傚害O(1)
      */
     public static void knuthDurstenfeldShuffle(final int[] arr) {
         for (int i = arr.length - 1, k; i > 0; i--) {
@@ -16,7 +16,7 @@ public class Shuffle {
     }
 
     /**
-     * 时间复杂度O(n)，空间复杂度O(n)
+     * 鏃堕棿澶嶆潅搴(n)锛岀┖闂村鏉傚害O(n)
      */
     public static int[] insideOutShuffle(final int[] arr) {
         final int[] copy = new int[arr.length];

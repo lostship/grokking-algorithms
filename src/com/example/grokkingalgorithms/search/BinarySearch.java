@@ -4,7 +4,7 @@ import java.util.stream.IntStream;
 
 public class BinarySearch {
     /**
-     * 对于一个长度为n的数组，二分查找最多需要floor(log<sup>n</sup>) + 1步，算法时间复杂度为O(log<sup>n</sup>)
+     * 瀵逛簬涓�涓暱搴︿负n鐨勬暟缁勶紝浜屽垎鏌ユ壘鏈�澶氶渶瑕乫loor(log<sup>n</sup>) + 1姝ワ紝绠楁硶鏃堕棿澶嶆潅搴︿负O(log<sup>n</sup>)
      */
     public static int binarySearch(int[] arr, int item) {
         int low = 0;

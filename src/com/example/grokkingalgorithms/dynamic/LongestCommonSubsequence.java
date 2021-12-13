@@ -41,9 +41,9 @@ public class LongestCommonSubsequence {
             }
         }
 
-        // ´Ó¾ØÕóÖÐÃ¿¸öµãp£¬±íÊ¾´ÓÆðÊ¼×Ö·û¿ªÊ¼£¬·Ö±ðÒÔpºá×Ý×ø±êµÄ×Ö·ûÎª½áÊø×Ö·û£¬½ØÈ¡µÄÁ½¸ö×Ó´®
-        // pµÄÖµÎªÕâÁ½¸ö×Ó´®ÖÐ£¬°üº¬µÄ×î´ó¹«¹²×ÓÐòÁÐ³¤¶È
-        // Ò²Òò´Ë¾ØÕóÖÐµÄ×î´óÖµ¾ÍÊÇ×î´ó×ÓÐòÁÐ³¤¶È
+        // ä»ŽçŸ©é˜µä¸­æ¯ä¸ªç‚¹pï¼Œè¡¨ç¤ºä»Žèµ·å§‹å­—ç¬¦å¼€å§‹ï¼Œåˆ†åˆ«ä»¥pæ¨ªçºµåæ ‡çš„å­—ç¬¦ä¸ºç»“æŸå­—ç¬¦ï¼Œæˆªå–çš„ä¸¤ä¸ªå­ä¸²
+        // pçš„å€¼ä¸ºè¿™ä¸¤ä¸ªå­ä¸²ä¸­ï¼ŒåŒ…å«çš„æœ€å¤§å…¬å…±å­åºåˆ—é•¿åº¦
+        // ä¹Ÿå› æ­¤çŸ©é˜µä¸­çš„æœ€å¤§å€¼å°±æ˜¯æœ€å¤§å­åºåˆ—é•¿åº¦
         Matrices.print(t, s1.toCharArray(), s2.toCharArray());
 
         return maxLen;

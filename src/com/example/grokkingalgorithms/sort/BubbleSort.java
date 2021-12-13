@@ -7,7 +7,7 @@ import com.example.grokkingalgorithms.util.Arrays;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
- * ʱ�临�Ӷ�O(n<sup>2</sup>)
+ * 时间复杂度O(n<sup>2</sup>)
  */
 public class BubbleSort {
     public static void sort(int[] arr) {

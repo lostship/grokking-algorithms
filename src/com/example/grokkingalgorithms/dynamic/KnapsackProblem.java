@@ -5,17 +5,22 @@ import java.util.Map;
 import java.util.Optional;
 
 /**
- * ��̬�滮��Dynamic Programming��DP��
+ * 动态规划（Dynamic Programming，DP）基本算法思想
  * 
- * ̰���㷨�����ڸ���Լ��������������ʱ�����ҵ����ƽ⣬����̬�滮�����ڸ���Լ���������ҵ����Ž�
+ * 动态规划将大问题分解成多个离散的子问题，先解决子问题，再逐步解决大问题。
+ * 动态规划没有统一的处理方法，需要根据问题的性质来处理。
+ * 各种动态规划解决方案都涉及填表。
  * 
- * ��̬�滮��������ֽ�ɶ����ɢ�������⣬�Ƚ�������⣬���𲽽��������
- * ����ÿ�������ⶼ����ɢ�ģ���������������������ʱ���������worth������Ϊ�Ƿ�ѡ��������������������仯������̬�滮�Ź���
+ * 动态规划适用的问题必须满足以下条件：
+ * - 具有最优子结构性质：最优化策略的子策略总是最有的；
+ * - 无后效性：每个子问题都是离散的，即不依赖于其他子问题（子问题的worth不会因为是否选择了其他子问题而发生变化）；
+ * - 子问题具有重叠性：这样才能使用缓存，使用空间换取时间，解决冗余的子问题重复计算，这是动态规划的根本目的。
  * 
- * ÿ�������ⶼֻ��Ҫô���ã�Ҫô��ȫ������̬�滮���ܴ�����ĳ����������һ���ֵ����������ȡһ���water��
- * ��̰���㷨�ܹ���ƺ��ʵ�̰�Ĳ��Դ��������
- * 
- * ���ֶ�̬�滮����������漰����
+ * 与贪心算法的不同：
+ * - 贪心算法用于在给定约束条件下在有限时间内找到近似解，而动态规划用于在给定约束条件下找到最优解。
+ * - 贪心算法适用的问题也具有最优子结构性质，但是没有重叠子问题的性质，也不一定是无后效性的。
+ * - 动态规划要求每个子问题都只能要么不拿，要么拿全部，动态规划不能处理对某个子问题拿一部分的情况（比如取一半的water），
+ * 而贪心算法能够设计合适的贪心策略处理该情况。
  */
 public class KnapsackProblem {
     private enum Item {
@@ -77,8 +82,8 @@ public class KnapsackProblem {
     }
 
     /**
-     * @param k ��ǰ��Ʒ����
-     * @param w ��ǰʣ������
+     * @param k 当前物品索引
+     * @param w 当前剩余容量
      */
     private static Result choose(int k, int w, int v) {
         // base case
@@ -108,11 +113,11 @@ public class KnapsackProblem {
     }
 
     private static class Result {
-        private final int k; // ��ǰ��Ʒ����
-        private final int w; // ���������Ϊwʱ
-        private final int v; // ��������Ϊvʱ
-        private final int worth; // ������С�ڵ���k����Ʒ�У����������Ϊw��������Ϊvʱ����ѡ��Ʒ����ܼ�ֵ
-        private final boolean contained; // Ҫ�ﵽworth���Ƿ������ǰ��Ʒ
+        private final int k; // 当前物品索引
+        private final int w; // 当最大重量为w时
+        private final int v; // 当最大体积为v时
+        private final int worth; // 在索引小于等于k的物品中，当最大重量为w、最大体积为v时，可选物品最大总价值
+        private final boolean contained; // 要达到worth，是否包含当前物品
 
         public Result(int k, int w, int v, int worth, boolean contained) {
             this.k = k;
