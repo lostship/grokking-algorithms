@@ -7,18 +7,30 @@ import com.example.grokkingalgorithms.util.Arrays;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
- * 时间复杂度O(n<sup>2</sup>)，但是交换操作复杂度为O(n)，优于冒泡排序
+ * 时间复杂度O(n * log<sup>n</sup>)
  */
-public class SelectionSort {
-    public static void sort(int[] arr) {
-        for (int i = 0, min = 0; i < arr.length; min = i = i + 1) {
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[min]) {
-                    min = j;
-                }
-            }
-            Arrays.swap(arr, min, i);
+public class ShellSort {
+
+    public static void sort(int[] data) {
+        sort(data, data.length / 2);
+    }
+
+    private static void sort(int[] data, int d) {
+        if (d < 1) {
+            return;
         }
+
+        for (int i = d; i < data.length; i++) {
+            int t = data[i];
+            int j = i;
+            while (j >= d && t < data[j - d]) {
+                data[j] = data[j - d];
+                j -= d;
+            }
+            data[j] = t;
+        }
+
+        sort(data, d / 2);
     }
 
     public static void main(String[] args) {
@@ -35,4 +47,5 @@ public class SelectionSort {
             }
         });
     }
+
 }

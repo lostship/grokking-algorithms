@@ -1,4 +1,4 @@
-package com.example.grokkingalgorithms.sort;
+package com.example.grokkingalgorithms.sort.simple;
 
 import java.util.stream.IntStream;
 
@@ -7,27 +7,19 @@ import com.example.grokkingalgorithms.util.Arrays;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
- * 时间复杂度O(n<sup>2</sup>)
+ * 时间复杂度O(n<sup>2</sup>)，但是交换操作复杂度为O(n)，优于冒泡排序
  */
-public class BubbleSort {
+public class SelectionSort {
+
     public static void sort(int[] arr) {
-        boolean notSorted;
-
-        for (int i = 0; i < arr.length - 1; i++) {
-            notSorted = false;
-
-            for (int j = 0; j < arr.length - i - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    Arrays.swap(arr, j, j + 1);
-                    if (!notSorted) {
-                        notSorted = true;
-                    }
+        for (int i = 0; i < arr.length; i++) {
+            int min = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[min]) {
+                    min = j;
                 }
             }
-
-            if (!notSorted) {
-                return;
-            }
+            Arrays.swap(arr, min, i);
         }
     }
 
@@ -45,4 +37,5 @@ public class BubbleSort {
             }
         });
     }
+
 }
