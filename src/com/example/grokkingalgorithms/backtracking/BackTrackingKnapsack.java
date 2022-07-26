@@ -92,7 +92,7 @@ public class BackTrackingKnapsack {
      * 回溯法的限界函数
      * 
      * 问题的解空间往往很大，设计限界函数，在搜索过程中对某些节点进行剪枝，
-     * 尽可能多地避免搜索不可能产生最优解的活动结点，减少搜索空间，提高算法效率。
+     * 尽可能多地避免搜索不可能产生最优解的活结点，减少搜索空间，提高算法效率。
      */
     private static double bound(int[] weights, int[] values, int W, int n, int currentIndex, int currentWeight,
             int currentValue) {
@@ -111,8 +111,8 @@ public class BackTrackingKnapsack {
     }
 
     /**
-     * 在限界函数中将0-1背包问题松弛为背包问题，以计算活动结点所有解空间能够得到的最大价值，
-     * 如果该最大价值不超过当前以得到的最优解的价值，则可以对该活动结点进行剪枝。
+     * 在限界函数中将0-1背包问题松弛为背包问题，以计算当前活结点所有解空间能够得到的最大价值，
+     * 如果该最大价值不超过当前以得到的最优解的价值，则可以对该活结点进行剪枝。
      * 为此需要将物品按照单位重量价值由高到低排序，供本例中限界函数使用的贪心策略使用。
      */
     private static void sort(int[] weights, int[] values) {
