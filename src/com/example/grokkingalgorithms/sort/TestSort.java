@@ -20,14 +20,13 @@ public class TestSort {
         testSort(SelectionSort::sort, arr);
         testSort(InsertionSort::sort, arr);
         testSort(ShellSort::sort, arr);
+        testSort(MergeSort::sort, arr);
         testSort(QuickSort::sort, arr);
     }
 
     private static void testSort(Consumer<int[]> sortFunc, int[] arr) {
         int[] copy = Arrays.copy(arr);
-        Tests.time(() -> {
-            sortFunc.accept(copy);
-        });
+        Tests.time(() -> sortFunc.accept(copy));
 
         if (!Arrays.isSorted(copy)) {
             Arrays.print(copy);

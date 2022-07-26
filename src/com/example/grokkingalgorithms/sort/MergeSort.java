@@ -11,10 +11,8 @@ import com.example.grokkingalgorithms.util.Tests;
  */
 public class MergeSort {
 
-    public static int[] sort(int[] data) {
-        int[] target = new int[data.length];
-        sort(data, target, 0, data.length - 1, 0);
-        return target;
+    public static void sort(int[] data) {
+        sort(data, data, 0, data.length - 1, 0);
     }
 
     /**
@@ -62,9 +60,9 @@ public class MergeSort {
         Tests.time(() -> {
             for (int i = 0; i < 100000; i++) {
                 Shuffle.knuthDurstenfeldShuffle(arr);
-                int[] sorted = sort(arr);
-                if (!Arrays.isSorted(sorted)) {
-                    Arrays.print(sorted);
+                sort(arr);
+                if (!Arrays.isSorted(arr)) {
+                    Arrays.print(arr);
                     throw new AssertionError();
                 }
             }
