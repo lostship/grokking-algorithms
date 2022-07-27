@@ -1,6 +1,6 @@
 package com.example.grokkingalgorithms.backtracking;
 
-import com.example.grokkingalgorithms.util.Arrays;
+import com.example.grokkingalgorithms.util.ArrayUtils;
 
 /**
  * 回溯法在包含问题的所有解的解空间树中，按照深度优先策略，从根节点出发搜索解空间树。
@@ -16,13 +16,13 @@ public class BackTrackingKnapsack {
         int W = 110;
 
         sort(weights, values);
-        Arrays.print(weights);
-        Arrays.print(values);
+        ArrayUtils.print(weights);
+        ArrayUtils.print(values);
 
         int[] result = backTrackingKnapsack(weights, values, W);
 
         System.out.println("最佳选择：");
-        Arrays.print(result);
+        ArrayUtils.print(result);
     }
 
     public static int[] backTrackingKnapsack(int[] weights, int[] values, int W) {
@@ -49,7 +49,7 @@ public class BackTrackingKnapsack {
                 if (currentValue > maxValue) {
                     maxValue = currentValue;
                     System.arraycopy(temp, 0, result, 0, n);
-                    Arrays.print(result);
+                    ArrayUtils.print(result);
                     System.out.println(maxValue);
                 }
 

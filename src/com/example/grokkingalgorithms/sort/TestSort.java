@@ -7,7 +7,7 @@ import com.example.grokkingalgorithms.shuffle.Shuffle;
 import com.example.grokkingalgorithms.sort.simple.BubbleSort;
 import com.example.grokkingalgorithms.sort.simple.InsertionSort;
 import com.example.grokkingalgorithms.sort.simple.SelectionSort;
-import com.example.grokkingalgorithms.util.Arrays;
+import com.example.grokkingalgorithms.util.ArrayUtils;
 import com.example.grokkingalgorithms.util.Tests;
 
 public class TestSort {
@@ -25,11 +25,11 @@ public class TestSort {
     }
 
     private static void testSort(Consumer<int[]> sortFunc, int[] arr) {
-        int[] copy = Arrays.copy(arr);
+        int[] copy = arr.clone();
         Tests.time(() -> sortFunc.accept(copy));
 
-        if (!Arrays.isSorted(copy)) {
-            Arrays.print(copy);
+        if (!ArrayUtils.isSorted(copy)) {
+            ArrayUtils.print(copy);
             throw new AssertionError();
         }
     }

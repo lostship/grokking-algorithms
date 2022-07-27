@@ -1,6 +1,8 @@
 package com.example.grokkingalgorithms.backtracking;
 
-import com.example.grokkingalgorithms.util.Arrays;
+import java.util.Arrays;
+
+import com.example.grokkingalgorithms.util.ArrayUtils;
 
 public class NQueen {
 
@@ -16,7 +18,7 @@ public class NQueen {
 
     public static void nQueen(int n, int i, int[] columns) {
         if (i == n) {
-            Arrays.print(columns);
+            ArrayUtils.print(columns);
             return;
         }
 
@@ -32,7 +34,7 @@ public class NQueen {
 
     public static void nQueen2(int n) {
         int[] columns = new int[n];
-        java.util.Arrays.fill(columns, -1);
+        Arrays.fill(columns, -1);
         int i = 0;
 
         while (true) {
@@ -53,12 +55,15 @@ public class NQueen {
             }
 
             if (i == n) {
-                Arrays.print(columns);
+                ArrayUtils.print(columns);
                 i--;
             }
         }
     }
 
+    /**
+     * NQueen问题的限界函数可以根据问题描述直接定义，即任意两个皇后不在相同直线或斜线上
+     */
     private static boolean place(int[] columns, int index) {
         for (int i = 0; i < index; i++) {
             if (columns[i] == columns[index]

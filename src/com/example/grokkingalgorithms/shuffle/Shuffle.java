@@ -2,7 +2,7 @@ package com.example.grokkingalgorithms.shuffle;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-import com.example.grokkingalgorithms.util.Arrays;
+import com.example.grokkingalgorithms.util.ArrayUtils;
 
 public class Shuffle {
     /**
@@ -11,7 +11,7 @@ public class Shuffle {
     public static void knuthDurstenfeldShuffle(final int[] arr) {
         for (int i = arr.length - 1, k; i > 0; i--) {
             k = ThreadLocalRandom.current().nextInt(i + 1);
-            Arrays.swap(arr, i, k);
+            ArrayUtils.swap(arr, i, k);
         }
     }
 

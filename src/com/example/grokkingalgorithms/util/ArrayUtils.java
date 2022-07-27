@@ -1,16 +1,11 @@
 package com.example.grokkingalgorithms.util;
 
-public class Arrays {
-    public static String toString(int[] arr) {
-        return java.util.Arrays.toString(arr);
-    }
+import java.util.Arrays;
+
+public class ArrayUtils {
 
     public static void print(int[] arr) {
-        System.out.println(toString(arr));
-    }
-
-    public static int[] copy(int[] arr) {
-        return java.util.Arrays.copyOf(arr, arr.length);
+        System.out.println(Arrays.toString(arr));
     }
 
     public static void swap(int[] arr, int i, int j) {
@@ -30,4 +25,5 @@ public class Arrays {
         }
         return true;
     }
+
 }

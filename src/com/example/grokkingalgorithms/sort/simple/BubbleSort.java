@@ -3,7 +3,7 @@ package com.example.grokkingalgorithms.sort.simple;
 import java.util.stream.IntStream;
 
 import com.example.grokkingalgorithms.shuffle.Shuffle;
-import com.example.grokkingalgorithms.util.Arrays;
+import com.example.grokkingalgorithms.util.ArrayUtils;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
@@ -19,7 +19,7 @@ public class BubbleSort {
 
             for (int j = 0; j < arr.length - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    Arrays.swap(arr, j, j + 1);
+                    ArrayUtils.swap(arr, j, j + 1);
 
                     if (sorted) {
                         sorted = false;
@@ -36,8 +36,8 @@ public class BubbleSort {
             for (int i = 0; i < 100000; i++) {
                 Shuffle.knuthDurstenfeldShuffle(arr);
                 sort(arr);
-                if (!Arrays.isSorted(arr)) {
-                    Arrays.print(arr);
+                if (!ArrayUtils.isSorted(arr)) {
+                    ArrayUtils.print(arr);
                     throw new AssertionError();
                 }
             }

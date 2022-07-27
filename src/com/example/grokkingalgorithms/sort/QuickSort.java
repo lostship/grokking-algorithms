@@ -3,7 +3,7 @@ package com.example.grokkingalgorithms.sort;
 import java.util.stream.IntStream;
 
 import com.example.grokkingalgorithms.shuffle.Shuffle;
-import com.example.grokkingalgorithms.util.Arrays;
+import com.example.grokkingalgorithms.util.ArrayUtils;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
@@ -31,12 +31,12 @@ public class QuickSort {
                 j--;
             }
             if (i != j) {
-                Arrays.swap(arr, i, j);
+                ArrayUtils.swap(arr, i, j);
             }
         }
 
         if (arr[i] > k) {
-            Arrays.swap(arr, i, end);
+            ArrayUtils.swap(arr, i, end);
         } else if (arr[i] < k) {
             i = end;
         }
@@ -52,8 +52,8 @@ public class QuickSort {
             for (int i = 0; i < 100000; i++) {
                 Shuffle.knuthDurstenfeldShuffle(arr);
                 sort(arr);
-                if (!Arrays.isSorted(arr)) {
-                    Arrays.print(arr);
+                if (!ArrayUtils.isSorted(arr)) {
+                    ArrayUtils.print(arr);
                     throw new AssertionError();
                 }
             }

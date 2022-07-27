@@ -3,7 +3,7 @@ package com.example.grokkingalgorithms.sort;
 import java.util.stream.IntStream;
 
 import com.example.grokkingalgorithms.shuffle.Shuffle;
-import com.example.grokkingalgorithms.util.Arrays;
+import com.example.grokkingalgorithms.util.ArrayUtils;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
@@ -61,8 +61,8 @@ public class MergeSort {
             for (int i = 0; i < 100000; i++) {
                 Shuffle.knuthDurstenfeldShuffle(arr);
                 sort(arr);
-                if (!Arrays.isSorted(arr)) {
-                    Arrays.print(arr);
+                if (!ArrayUtils.isSorted(arr)) {
+                    ArrayUtils.print(arr);
                     throw new AssertionError();
                 }
             }
