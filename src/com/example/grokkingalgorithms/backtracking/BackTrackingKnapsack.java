@@ -91,8 +91,12 @@ public class BackTrackingKnapsack {
     /**
      * 回溯法的限界函数
      * 
-     * 问题的解空间往往很大，设计限界函数，在搜索过程中对某些节点进行剪枝，
-     * 尽可能多地避免搜索不可能产生最优解的活结点，减少搜索空间，提高算法效率。
+     * 问题的解空间往往很大，为了有效地进行搜索，需要在搜索过程中对某些结点进行剪枝，
+     * 而对哪些结点进行剪枝需要设计限界函数来判断。因此限界函数的设计是回溯法的一个
+     * 核心问题，也是一个很难的问题。
+     * 
+     * 设计限界函数的通用指导原则是尽可能多和尽可能早地剪除不可能产生最优解的活结点，
+     * 减少搜索空间，提高算法效率。
      */
     private static double bound(int[] weights, int[] values, int W, int n, int currentIndex, int currentWeight,
             int currentValue) {

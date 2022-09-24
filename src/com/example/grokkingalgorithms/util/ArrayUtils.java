@@ -8,6 +8,10 @@ public class ArrayUtils {
         System.out.println(Arrays.toString(arr));
     }
 
+    public static void print(byte[] arr) {
+        System.out.println(Arrays.toString(arr));
+    }
+
     public static void swap(int[] arr, int i, int j) {
         if (i == j) {
             return;
