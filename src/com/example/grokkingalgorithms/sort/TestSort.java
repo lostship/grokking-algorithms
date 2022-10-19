@@ -22,6 +22,7 @@ public class TestSort {
         testSort(ShellSort::sort, arr);
         testSort(MergeSort::sort, arr);
         testSort(QuickSort::sort, arr);
+        testSort(HeapSort::sort, arr);
     }
 
     private static void testSort(Consumer<int[]> sortFunc, int[] arr) {

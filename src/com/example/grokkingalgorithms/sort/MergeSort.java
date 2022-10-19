@@ -4,10 +4,15 @@ import java.util.stream.IntStream;
 
 import com.example.grokkingalgorithms.shuffle.Shuffle;
 import com.example.grokkingalgorithms.util.ArrayUtils;
+import com.example.grokkingalgorithms.util.MathUtils;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
- * 时间复杂度O(n * log<sup>n</sup>)
+ * 平均时间复杂度O(n * log<sup>n</sup>)
+ * 最坏时间复杂度O(n * log<sup>n</sup>)
+ * 最好时间复杂度O(n * log<sup>n</sup>)
+ * 辅助空间O(n)
+ * 稳定
  */
 public class MergeSort {
 
@@ -55,10 +60,9 @@ public class MergeSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = IntStream.rangeClosed(1, 100).toArray();
-
         Tests.time(() -> {
             for (int i = 0; i < 100000; i++) {
+                int[] arr = IntStream.rangeClosed(1, MathUtils.random(1, 100)).toArray();
                 Shuffle.knuthDurstenfeldShuffle(arr);
                 sort(arr);
                 if (!ArrayUtils.isSorted(arr)) {

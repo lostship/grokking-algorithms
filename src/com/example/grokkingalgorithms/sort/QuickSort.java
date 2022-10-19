@@ -4,12 +4,20 @@ import java.util.stream.IntStream;
 
 import com.example.grokkingalgorithms.shuffle.Shuffle;
 import com.example.grokkingalgorithms.util.ArrayUtils;
+import com.example.grokkingalgorithms.util.MathUtils;
 import com.example.grokkingalgorithms.util.Tests;
 
 /**
- * 使用分治的基本算法思想（divide and conquer, D&C），时间复杂度O(n * log<sup>n</sup>)
+ * 平均时间复杂度O(n * log<sup>n</sup>)
+ * 最坏时间复杂度O(n<sup>2</sup>)
+ * 最好时间复杂度O(n * log<sup>n</sup>)
+ * 辅助空间O(log<sup>n</sup>)
+ * 不稳定
+ * 
+ * 使用分治的基本算法思想（divide and conquer, D&C）
  */
 public class QuickSort {
+
     public static void sort(final int[] arr) {
         sort(arr, 0, arr.length - 1);
     }
@@ -46,10 +54,9 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int[] arr = IntStream.rangeClosed(1, 100).toArray();
-
         Tests.time(() -> {
             for (int i = 0; i < 100000; i++) {
+                int[] arr = IntStream.rangeClosed(1, MathUtils.random(1, 100)).toArray();
                 Shuffle.knuthDurstenfeldShuffle(arr);
                 sort(arr);
                 if (!ArrayUtils.isSorted(arr)) {
@@ -59,4 +66,5 @@ public class QuickSort {
             }
         });
     }
+
 }
