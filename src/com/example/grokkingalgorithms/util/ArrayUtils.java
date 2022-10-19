@@ -22,8 +22,13 @@ public class ArrayUtils {
     }
 
     public static boolean isSorted(int[] arr) {
+        return isSorted(arr, true);
+    }
+
+    public static boolean isSorted(int[] arr, boolean hasRepeatNumber) {
         for (int i = 0; i < arr.length - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
+            if (hasRepeatNumber && arr[i] > arr[i + 1]
+                    || !hasRepeatNumber && arr[i] >= arr[i + 1]) {
                 return false;
             }
         }

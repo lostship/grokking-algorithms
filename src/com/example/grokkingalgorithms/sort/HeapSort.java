@@ -27,17 +27,17 @@ public class HeapSort {
         // 编程时因为从0开始，所以编号i的结点的子结点是2i+1和2i+2，所以当2i+1 > n-1，即i > n/2-1时没有子节点
         // 因此从i = n/2-1开始建立初始最大堆
         for (int i = n / 2 - 1; i >= 0; i--) {
-            heapAdjust(data, i, n - 1);
+            maxHeapAdjust(data, i, n - 1);
         }
 
         // 不断输出根节点最大值，并调整新堆
         for (int i = n - 1; i >= 0; i--) {
-            ArrayUtils.swap(data, i, 0);
-            heapAdjust(data, 0, i - 1);
+            ArrayUtils.swap(data, 0, i);
+            maxHeapAdjust(data, 0, i - 1);
         }
     }
 
-    private static void heapAdjust(int[] data, int s, int e) {
+    private static void maxHeapAdjust(int[] data, int s, int e) {
         for (int i = 2 * s + 1; i <= e; i = 2 * s + 1) {
             if (i < e && data[i + 1] > data[i]) {
                 i++;
@@ -52,13 +52,62 @@ public class HeapSort {
         }
     }
 
+    public static void sort2(int[] data) {
+        int n = data.length;
+        if (n <= 1) {
+            return;
+        }
+
+        // 建立初始最小堆
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            minHeapAdjust(data, i, n - 1);
+        }
+
+        // 不断输出根节点最大值，并调整新堆
+        for (int i = n - 1; i >= 0; i--) {
+            ArrayUtils.swap(data, reverseIndex(data, 0), reverseIndex(data, i));
+            minHeapAdjust(data, 0, i - 1);
+        }
+    }
+
+    private static void minHeapAdjust(int[] data, int s, int e) {
+        for (int i = 2 * s + 1; i <= e; i = 2 * s + 1) {
+            if (i < e && data[reverseIndex(data, i + 1)] < data[reverseIndex(data, i)]) {
+                i++;
+            }
+
+            if (data[reverseIndex(data, s)] <= data[reverseIndex(data, i)]) {
+                return;
+            }
+
+            ArrayUtils.swap(data, reverseIndex(data, s), reverseIndex(data, i));
+            s = i;
+        }
+    }
+
+    private static int reverseIndex(int[] data, int index) {
+        return data.length - index - 1;
+    }
+
     public static void main(String[] args) {
         Tests.time(() -> {
             for (int i = 0; i < 100000; i++) {
                 int[] arr = IntStream.rangeClosed(1, MathUtils.random(1, 100)).toArray();
                 Shuffle.knuthDurstenfeldShuffle(arr);
                 sort(arr);
-                if (!ArrayUtils.isSorted(arr)) {
+                if (!ArrayUtils.isSorted(arr, false)) {
+                    ArrayUtils.print(arr);
+                    throw new AssertionError();
+                }
+            }
+        });
+
+        Tests.time(() -> {
+            for (int i = 0; i < 100000; i++) {
+                int[] arr = IntStream.rangeClosed(1, MathUtils.random(1, 100)).toArray();
+                Shuffle.knuthDurstenfeldShuffle(arr);
+                sort2(arr);
+                if (!ArrayUtils.isSorted(arr, false)) {
                     ArrayUtils.print(arr);
                     throw new AssertionError();
                 }
